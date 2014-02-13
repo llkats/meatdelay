@@ -71,7 +71,7 @@
   };
 
   var go = function() {
-    jQuery('form').trigger('submit');
+    jQuery('#composer-message').trigger('change').trigger('submit');
     document.body.removeChild(document.getElementById('butts'));
   };
 
