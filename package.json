@@ -1,6 +1,6 @@
 {
   "name": "meatdelay",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Bookmarklet to delay the submission of a meat message.",
   "main": "Gruntfile.js",
   "scripts": {
