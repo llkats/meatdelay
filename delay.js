@@ -75,6 +75,13 @@
     document.body.removeChild(document.getElementById('butts'));
   };
 
+  var remove = function(e) {
+    if (e.keyCode == 27) {
+      document.body.removeChild(document.getElementById('butts'));
+    }
+    window.removeEventListener('keydown', remove, false);
+  };
+
   // set styles on the container div
   for (var i in divstyles) {
     div.style[i] = divstyles[i];
@@ -110,6 +117,9 @@
   }
 
   div.appendChild(countdown);
+
+  window.addEventListener('keydown', remove, false);
+
   document.body.appendChild(div);
 
 }());
