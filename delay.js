@@ -73,6 +73,7 @@
   var go = function() {
     jQuery('#composer-message').trigger('change').trigger('submit');
     document.body.removeChild(document.getElementById('butts'));
+    window.removeEventListener('keydown', remove, false);
   };
 
   var remove = function(e) {
