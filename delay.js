@@ -76,6 +76,7 @@
     window.removeEventListener('keydown', remove, false);
   };
 
+  // press escape key to dismiss meatdelay without submitting
   var remove = function(e) {
     if (e.keyCode == 27) {
       document.body.removeChild(document.getElementById('butts'));
@@ -96,6 +97,9 @@
 
     // add event listeners to the butts lol
     butts[lol].addEventListener('click', function(e) {
+      // prevent escaping away from meatdelay after click
+      window.removeEventListener('keydown', remove, false);
+
       var d = document.getElementById('butts'),
           bs = d.getElementsByTagName('button');
 
