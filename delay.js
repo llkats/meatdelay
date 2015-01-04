@@ -1,6 +1,6 @@
 (function() {
 
-  var WAITFORIT;
+  var WAITFORIT, num;
 
   // style objects for styles bc lazy
   var divstyles = {
@@ -71,9 +71,11 @@
   };
 
   var go = function() {
-    jQuery('#composer-message').trigger('change').trigger('submit');
+    var elem = document.querySelector('form');
+    var event = new Event('submit');  // (*)
+    elem.dispatchEvent(event);
+
     document.body.removeChild(document.getElementById('butts'));
-    window.removeEventListener('keydown', remove, false);
   };
 
   // press escape key to dismiss meatdelay without submitting
@@ -97,9 +99,6 @@
 
     // add event listeners to the butts lol
     butts[lol].addEventListener('click', function(e) {
-      // prevent escaping away from meatdelay after click
-      window.removeEventListener('keydown', remove, false);
-
       var d = document.getElementById('butts'),
           bs = d.getElementsByTagName('button');
 
@@ -121,10 +120,9 @@
     div.appendChild(butts[lol]);
   }
 
-  div.appendChild(countdown);
-
   window.addEventListener('keydown', remove, false);
 
+  div.appendChild(countdown);
   document.body.appendChild(div);
 
 }());
