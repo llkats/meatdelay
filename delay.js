@@ -69,21 +69,20 @@
       go();
     }
   };
-
-  var go = function() {
-    var elem = document.querySelector('form');
-    var event = new Event('submit');  // (*)
-    elem.dispatchEvent(event);
-
-    document.body.removeChild(document.getElementById('butts'));
-  };
-
   // press escape key to dismiss meatdelay without submitting
   var remove = function(e) {
     if (e.keyCode == 27) {
       document.body.removeChild(document.getElementById('butts'));
     }
     window.removeEventListener('keydown', remove, false);
+  };
+
+  var go = function() {
+    var elem = document.querySelector('form');
+    var event = new Event('submit');
+    elem.dispatchEvent(event);
+
+    document.body.removeChild(document.getElementById('butts'));
   };
 
   // set styles on the container div
@@ -119,6 +118,7 @@
     // append the butts to the div lol
     div.appendChild(butts[lol]);
   }
+
 
   window.addEventListener('keydown', remove, false);
 
